@@ -1,28 +1,31 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import Authentication from './modules/Authentication/Authentication';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from 'app/pages/NotFound';
 import Home from 'app/modules/Home/Home';
+import { StyleWrapper } from 'app/components/StyleWrapper/StyleWrapper';
+import * as S from 'app/components/Container/Container.styles';
+import Authentication from 'app/modules/Authentication/Authentication';
+import Header from 'app/components/Header';
 import ROUTES from 'app/constants/routes';
 
-const { LOGIN } = ROUTES;
+const { LOGIN, HOME, NOT_FOUND } = ROUTES;
 
 function App() {
     return (
         <>
-            <BrowserRouter>
-                <header>
-                    <Link to={'/'}>Home</Link>
-                    <Link to={LOGIN}>Login</Link>
-                </header>
-
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route index element={<Home />} />
-                    <Route path={LOGIN} element={<Authentication />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </BrowserRouter>
+            <StyleWrapper>
+                <BrowserRouter>
+                    <Header />
+                    <S.ContainerStyled>
+                        <Routes>
+                            <Route path={HOME} element={<Home />} />
+                            <Route index element={<Home />} />
+                            <Route path={LOGIN} element={<Authentication />} />
+                            <Route path={NOT_FOUND} element={<NotFound />} />
+                        </Routes>
+                    </S.ContainerStyled>
+                </BrowserRouter>
+            </StyleWrapper>
         </>
     );
 }
