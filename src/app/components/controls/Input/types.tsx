@@ -1,6 +1,7 @@
-enum Types {
+enum InputType {
     Email = 'email',
     Password = 'password',
+    Text = 'text',
 }
 
-export default Types;
+export default InputType;

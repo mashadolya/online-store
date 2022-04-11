@@ -1,6 +1,5 @@
 import React from 'react';
 import { IconsGroup } from 'app/components/Header/components/IconsGroup/IconsGroup';
-import items from 'app/components/Header/constants/routes';
 import Logo from 'app/components/Logo';
 import * as S from 'app/components/Header/Header.styles';
 import { ContainerStyled } from 'app/components/Container/Container.styles';

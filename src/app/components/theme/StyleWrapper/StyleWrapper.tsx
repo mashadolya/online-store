@@ -234,6 +234,11 @@ Shadows
                 justify-content: space-between;`,
         },
     },
+
+    spacer: ({ margin, padding }: { margin?: string; padding?: string }) => ({
+        margin,
+        padding,
+    }),
 });
 
 export const StyleWrapper = ({ children }: { children: React.ReactNode }) => (
