@@ -1,49 +1,32 @@
-import React from 'react';
-import Types from 'app/components/controls/Input/types';
-import HeaderText from 'app/components/HeaderText/HeaderText';
-import * as S from 'app/components/Form/Form.style';
-import { useForm } from 'app/components/Form/hooks/useForm';
-import Input from 'app/components/controls/Input/Input';
-import Button from 'app/components/controls/Button/Button';
-import SignInFormProps from 'app/modules/Authentication/components/SignInForm/SignInForm.types';
-import getUserFromStore from 'app/modules/Authentication/services/userStore';
+import React, { FC } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import FormHeader from 'src/app/components/Form/FormHeader/FormHeader';
+import Input from 'src/app/components/controls/Input/Input';
+import { FieldContainer } from 'src/app/modules/Authentication/components/AuthModal/AuthModal.styles';
+import { HEADER_TITLE } from 'src/app/modules/Authentication/components/SignUpForm/constants';
+import { FormProps } from 'src/app/modules/Authentication/components/Form.types';
+import FormInput from 'src/app/components/Form/controls/FormInput';
+import { signInValidationSchema } from 'src/app/modules/Authentication/components/SignInForm/signInValidationSchema';
+import { SignInData } from 'src/app/modules/Authentication/components/SignInForm/SignInForm.types';
 
-const { Email, Password } = Types;
+const SignInForm: FC<FormProps> = ({ onSubmit }) => {
+    const { handleSubmit, control } = useForm<SignInData>({
+        mode: 'all',
+        resolver: yupResolver(signInValidationSchema),
+    });
 
-const HEADER_TITLE = 'Your account for everything toxic';
-
-const initialState = {
-    email: '',
-    password: '',
-};
-
-const SignInForm: React.FC<SignInFormProps> = ({ handleRegistrationForm, onLoginSuccess }) => {
-    const { onChange, onSubmit, values } = useForm(onLoginSuccess, initialState);
-
-    function onSignInSuccess() {
-        if (getUserFromStore(values.email)) {
-            onLoginSuccess();
-        } else {
-            // TODO: get Error
-            alert('User not exists!!');
-        }
-    }
-
+    // TODO: type is not working
     return (
-        <S.FormWrapper onSubmit={onSubmit}>
-            <HeaderText title={HEADER_TITLE} />
-            <Input name={Email} placeholder="Email Address" type={Email} onChange={onChange} />
-            <Input name={Password} placeholder="Password" type={Password} onChange={onChange} />
-            <Button onClick={onSignInSuccess} type="button">
-                SIGN IN
-            </Button>
-            <div className="action-link">
-                Not a member?
-                <button onClick={handleRegistrationForm} type="button">
-                    Join us.
-                </button>
-            </div>
-        </S.FormWrapper>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <FormHeader title={HEADER_TITLE} />
+            <FormInput name="email" control={control} placeholder="Email Address" />
+
+            <FormInput name="password" placeholder="Password" control={control} type="password" />
+            <FieldContainer>
+                <Input type="submit" value="Sign In" />
+            </FieldContainer>
+        </form>
     );
 };
 

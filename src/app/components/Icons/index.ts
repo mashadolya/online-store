@@ -1,1 +1,1 @@
-export * from './Icons';
+export * from 'src/app/components/Icons/Icons';

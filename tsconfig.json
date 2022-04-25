@@ -21,7 +21,11 @@
         "skipLibCheck": true,
         "strict": true,
         "typeRoots": ["./node_modules/@types"],
-        "baseUrl": "./src"
+        "baseUrl": "./",
+        "paths": {
+            "*": ["*"],
+            "src/*": ["./src/*"],
+        }
     },
     "include": ["src", "styled.d.ts" , "src/custom.d.ts"],
     "exclude": [

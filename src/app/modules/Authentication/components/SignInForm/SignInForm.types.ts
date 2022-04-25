@@ -1,8 +1,3 @@
-import { MouseEventHandler, SyntheticEvent } from 'react';
+import { User } from 'src/app/models/User';
 
-interface SignInFormProps {
-    handleRegistrationForm: MouseEventHandler<HTMLButtonElement>;
-    onLoginSuccess: any;
-}
-
-export default SignInFormProps;
+export type SignInData = Omit<User, 'nickName'>;

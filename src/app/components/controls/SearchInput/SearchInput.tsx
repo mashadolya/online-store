@@ -1,10 +1,12 @@
-import React from 'react';
-import * as S from 'app/components/controls/SearchInput/SearchInput.styles';
+import React, { FC } from 'react';
+import * as S from 'src/app/components/controls/SearchInput/SearchInput.styles';
 
-export const SearchInput = () => {
+const SearchInput: FC = () => {
     return (
         <S.SearchInputWrapper className="search-input">
             <S.InputWrapped type="search" placeholder="Search" />
         </S.SearchInputWrapper>
     );
 };
+
+export default SearchInput;

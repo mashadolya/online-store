@@ -57,6 +57,8 @@ const theme = Object.freeze({
         light002: '#E9ECEF',
         light003: '#DEE2E6',
         teal: '#ADB5BD',
+        black: '#000000',
+        red: '#fe0000',
     }),
     /* ==========================================================
    Sizing
@@ -234,11 +236,6 @@ Shadows
                 justify-content: space-between;`,
         },
     },
-
-    spacer: ({ margin, padding }: { margin?: string; padding?: string }) => ({
-        margin,
-        padding,
-    }),
 });
 
 export const StyleWrapper = ({ children }: { children: React.ReactNode }) => (

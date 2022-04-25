@@ -1,27 +1,28 @@
-import React from 'react';
-import { IconsGroup } from 'app/components/Header/components/IconsGroup/IconsGroup';
-import Logo from 'app/components/Logo';
-import * as S from 'app/components/Header/Header.styles';
-import { ContainerStyled } from 'app/components/Container/Container.styles';
-import UserMenu from 'app/components/Header/components/UserMenu/UserMenu';
-import { SearchInput } from 'app/components/controls/SearchInput/SearchInput';
+import { FC } from 'react';
+import NavBar from 'src/app/components/Header/components/NavBar';
+import Logo from 'src/app/components/Logo';
+import SearchInput from 'src/app/components/controls/SearchInput';
+import * as S from 'src/app/components/Header/Header.styles';
+import { CenterContainer } from 'src/app/components/Container/CenterContainer.styles';
 
-function Header() {
+const Header: FC = () => {
     return (
-        <S.HeaderContainerStyled className="header">
-            <S.HeaderBorder>
-                <UserMenu />
+        <S.HeaderContainer className="header">
+            <S.HeaderBorder className="header-border">
+                <CenterContainer />
             </S.HeaderBorder>
-            <ContainerStyled>
-                <S.HeaderStyles>
+
+            <CenterContainer>
+                <S.HeaderContent>
                     <Logo />
                     <SearchInput />
-                    <IconsGroup />
-                </S.HeaderStyles>
-            </ContainerStyled>
+                    <NavBar />
+                </S.HeaderContent>
+            </CenterContainer>
+
             <S.HeaderBorder />
-        </S.HeaderContainerStyled>
+        </S.HeaderContainer>
     );
-}
+};
 
 export default Header;

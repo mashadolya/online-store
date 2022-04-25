@@ -1,33 +1,32 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NotFound from 'app/pages/NotFound';
-import Home from 'app/modules/Home/Home';
-import { StyleWrapper } from 'app/components/theme/StyleWrapper/StyleWrapper';
-import * as S from 'app/components/Container/Container.styles';
-import Authentication from 'app/modules/Authentication/Authentication';
-import Header from 'app/components/Header';
-import ROUTES from 'app/constants/routes';
-import SignInPage from 'app/modules/Authentication/pages/SignInPage';
-
-const { LOGIN, HOME, NOT_FOUND } = ROUTES;
+import { BrowserRouter } from 'react-router-dom';
+import * as S from 'src/app/components/Container/CenterContainer.styles';
+import Header from 'src/app/components/Header';
+import Router from 'src/app/components/Router';
+import { StyleWrapper } from 'src/app/components/theme/StyleWrapper/StyleWrapper';
+import { useEffect } from 'react';
+import { useAppDispatch } from 'src/app/hooks/useAppDispatch';
+import { createUser } from 'src/app/modules/Authentication/slices/authorizationSlice';
+import { getSession } from 'src/app/services/sessionService';
 
 function App() {
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        const currentUser = getSession();
+        if (currentUser) {
+            dispatch(createUser(currentUser));
+        }
+    }, []);
+
     return (
-        <>
-            <StyleWrapper>
-                <BrowserRouter>
-                    <Header />
-                    <S.ContainerStyled>
-                        <Routes>
-                            <Route path={HOME} element={<Home />} />
-                            <Route index element={<Home />} />
-                            <Route path={LOGIN} element={<SignInPage />} />
-                            <Route path={NOT_FOUND} element={<NotFound />} />
-                        </Routes>
-                    </S.ContainerStyled>
-                </BrowserRouter>
-            </StyleWrapper>
-        </>
+        <StyleWrapper>
+            <BrowserRouter>
+                <Header />
+                <S.CenterContainer>
+                    <Router />
+                </S.CenterContainer>
+            </BrowserRouter>
+        </StyleWrapper>
     );
 }
 

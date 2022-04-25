@@ -1,20 +1,14 @@
-import { InputContent, InputWrapper } from 'app/components/controls/Input/Input.styles';
-import React from 'react';
-import InputType from 'app/components/controls/Input/types';
+import React, { FC } from 'react';
+import * as S from 'src/app/components/controls/Input/Input.styles';
+import { InputProps } from 'src/app/components/controls/Input/Input.types';
 
-interface IInputProps {
-    name: string;
-    type?: InputType;
-    placeholder?: string;
-    className?: string;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+const Input: FC<InputProps> = React.forwardRef(({ ...rest }, ref) => {
+    return (
+        <S.InputContainer className="input-container" type={rest.type}>
+            <S.InputContent {...rest} ref={ref} />
+        </S.InputContainer>
+    );
+});
 
-const Input = ({ name, type, placeholder, className, onChange }: IInputProps) => (
-    // TODO: Question
-    <InputWrapper margin="10px 0" className={className}>
-        <InputContent name={name} placeholder={placeholder} type={type} onChange={onChange} />
-    </InputWrapper>
-);
-
+Input.displayName = 'Input';
 export default Input;

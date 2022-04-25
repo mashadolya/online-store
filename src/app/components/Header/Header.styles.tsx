@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderContainerStyled = styled.div`
+export const HeaderContainer = styled.header`
     height: 136px;
     width: 100%;
 `;
@@ -11,6 +11,6 @@ export const HeaderBorder = styled.div`
     background-color: ${props => props.theme.color.light002};
 `;
 
-export const HeaderStyles = styled.header`
+export const HeaderContent = styled.div`
     ${props => props.theme.flex.center.spaceBetween}
 `;

@@ -1,15 +1,16 @@
-import React from 'react';
-import * as S from 'app/components/Logo/Logo.styles';
+import React, { FC } from 'react';
+import logoPath from 'src/assets/jpeg/nt-logo.jpeg';
+import { RoutePaths } from 'src/app/routes/routes';
+import RouterLink from 'src/app/components/controls/RouterLink';
+import * as S from 'src/app/components/Logo/Logo.styles';
 
-// DEV_NOTE: Issue with import as ReactComponent
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pngImage = require('./../../../assets/jpeg/nt-logo.jpeg');
-
-const Logo = () => {
+const Logo: FC = () => {
     return (
-        <S.LogoContainer className="ntn-logo">
-            <S.Image src={pngImage} alt="NT logo" />
-        </S.LogoContainer>
+        <RouterLink to={RoutePaths.HOME}>
+            <S.LogoContainer className="ntn-logo">
+                <S.Image src={logoPath} alt="No toxic logo" />
+            </S.LogoContainer>
+        </RouterLink>
     );
 };
 

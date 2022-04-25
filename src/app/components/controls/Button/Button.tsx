@@ -1,19 +1,11 @@
-import React, { SyntheticEvent } from 'react';
-import { ButtonContent, ButtonWrapper } from 'app/components/controls/Button/Button.style';
+import React, { FC } from 'react';
+import * as S from 'src/app/components/controls/Button/Button.styles';
+import { ButtonTypes } from 'src/app/components/controls/Button/Button.types';
 
-interface IButtonProps {
-    onClick?: (event: SyntheticEvent) => void;
-    children: React.ReactNode;
-    className?: string;
-    type?: 'button' | 'submit' | 'reset' | undefined;
-}
-
-const Button = ({ onClick, children, className, type }: IButtonProps) => (
-    <ButtonWrapper>
-        <ButtonContent type={type} onClick={onClick} className={className}>
-            {children}
-        </ButtonContent>
-    </ButtonWrapper>
+const Button: FC<ButtonTypes> = ({ children, ...rest }) => (
+    <S.ButtonContainer>
+        <S.Button {...rest}>{children}</S.Button>
+    </S.ButtonContainer>
 );
 
 export default Button;
