@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import * as S from 'src/app/components/Container/CenterContainer.styles';
+import * as S from 'src/app/components/containers/CenterContainer.styles';
 import Header from 'src/app/components/Header';
 import Router from 'src/app/components/Router';
 import { StyleWrapper } from 'src/app/components/theme/StyleWrapper/StyleWrapper';

@@ -8,7 +8,7 @@ import { InputProps } from 'src/app/components/controls/Input/Input.types';
 type FormInputProps<T> = Omit<InputProps, 'value' | 'defaultValue' | 'name' | 'inputRef'> &
     UseControllerProps<T>;
 
-const FormInput: FC = (props: any) => {
+const FormInput = (props: any) => {
     const {
         field: { onChange, onBlur, name, value, ref },
         formState: { errors },
