@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import IconButton from 'src/app/components/controls/IconButton/IconButton';
 
 export const SearchInputContainer = styled.div<{ isSearching?: boolean }>`

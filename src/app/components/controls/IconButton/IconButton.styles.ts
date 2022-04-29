@@ -1,8 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const IconButtonWrapper = styled.button`
     position: relative;
-    padding: 0 30px;
     width: 32px;
     height: 32px;
     border: none;
@@ -30,9 +29,13 @@ export const IconButtonWrapper = styled.button`
 
 export const Icon = styled.div`
     position: absolute;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     cursor: pointer;
+    &:hover {
+        fill: ${({ theme }) => theme.color.teal};
+    }
 `;

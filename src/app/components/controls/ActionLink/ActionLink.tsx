@@ -5,7 +5,7 @@ import { Link } from 'src/app/components/controls/ActionLink/ActionLink.styles';
 
 const ActionLink: FC<ActionLinkTypes> = ({ description, linkText, onClick }) => {
     return (
-        <S.ActionLinkContainer className="action-link">
+        <S.ActionLinkContainer>
             {description}
             <Link onClick={onClick} type="button">
                 {linkText}

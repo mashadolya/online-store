@@ -7,8 +7,8 @@ import { CenterContainer } from 'src/app/components/containers/CenterContainer.s
 
 const Header: FC = () => {
     return (
-        <S.HeaderContainer className="header">
-            <S.HeaderBorder className="header-border">
+        <S.HeaderContainer>
+            <S.HeaderBorder>
                 <CenterContainer />
             </S.HeaderBorder>
 

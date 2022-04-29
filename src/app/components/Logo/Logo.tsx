@@ -7,7 +7,7 @@ import * as S from 'src/app/components/Logo/Logo.styles';
 const Logo: FC = () => {
     return (
         <RouterLink to={RoutePaths.HOME}>
-            <S.LogoContainer className="ntn-logo">
+            <S.LogoContainer>
                 <S.Image src={logoPath} alt="No toxic logo" />
             </S.LogoContainer>
         </RouterLink>

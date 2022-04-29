@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components/macro';
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -39,6 +39,16 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+  
+  ul, p{
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
 
   html, body, #app, #app> div, body>div{
     height: 100%
@@ -50,6 +60,16 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto; 
   }
 `;
+
+const size = Object.freeze({
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '2560px',
+});
 
 const theme = Object.freeze({
     color: Object.freeze({
@@ -219,13 +239,15 @@ Shadows
         lg: '1400px',
     }),
 
-    media: Object.freeze({
-        xs: '320px',
-        sm: '420px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1200px',
-        xxl: '1440px',
+    device: Object.freeze({
+        mobileS: `min-width: ${size.mobileS}`,
+        mobileM: `min-width: ${size.mobileM}`,
+        mobileL: `min-width: ${size.mobileL}`,
+        tablet: `min-width: ${size.tablet}`,
+        laptop: `min-width: ${size.laptop}`,
+        laptopL: `min-width: ${size.laptopL}`,
+        desktop: `min-width: ${size.desktop}`,
+        desktopL: `min-width: ${size.desktop}`,
     }),
 
     flex: {

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const HeaderContainer = styled.header`
     height: 136px;
@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const HeaderBorder = styled.div`
-    @media (min-width: 959px) {
+    @media (${props => props.theme.device.laptop}) {
         height: 36px;
         width: 100%;
         background-color: ${props => props.theme.color.light002};

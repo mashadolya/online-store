@@ -6,7 +6,7 @@ const Modal: FC<ModalTypes> = ({ children, visible, doClose }) => {
     const stopPropagationHandler = (e: SyntheticEvent<HTMLDialogElement>) => e.stopPropagation();
 
     return (
-        <S.ModalOverlay className="modal" visible={visible} onClick={doClose}>
+        <S.ModalOverlay visible={visible} onClick={doClose}>
             <S.ModalWrapper onClick={stopPropagationHandler}>
                 <S.ModalContent>{children}</S.ModalContent>
             </S.ModalWrapper>

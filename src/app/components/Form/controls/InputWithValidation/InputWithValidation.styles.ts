@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Input from 'src/app/components/controls/Input/Input';
 
 export const InputWithError = styled(Input)<{ hasError: boolean }>`

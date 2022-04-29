@@ -7,6 +7,8 @@ export enum RoutePaths {
     HOME = '/',
     NOT_FOUND = '*',
     CART = '/cart',
+    FAVORITE = '/favorite',
+    PROFILE = '/profile',
 }
 
 export interface RouteTypes {

@@ -2,23 +2,30 @@ import * as S from 'src/app/components/Header/components/NavBar/components/NavIc
 import { Icons } from 'src/app/components/Icons';
 import RouterLink from 'src/app/components/controls/RouterLink';
 import { RoutePaths } from 'src/app/routes/routes';
-import IconButton from 'src/app/components/controls/IconButton/IconButton';
+import React from 'react';
 
-const { Cart, Profile } = Icons;
+const { Cart, Profile, Favorite } = Icons;
 
 const ICON_SIZE = 32;
 
 const NavIcons = () => {
     return (
-        <S.ItemsWrapper className="icons-group-wrapper">
-            <RouterLink to={RoutePaths.CART}>
-                <IconButton>
-                    <Cart width={ICON_SIZE} height={ICON_SIZE} className="cart" />
-                </IconButton>
+        <S.ItemsWrapper>
+            <RouterLink to={RoutePaths.FAVORITE}>
+                <S.ItemWrapper>
+                    <Favorite width={ICON_SIZE} height={ICON_SIZE} />
+                </S.ItemWrapper>
             </RouterLink>
-            <IconButton>
-                <Profile width={ICON_SIZE} height={ICON_SIZE} className="profile" />
-            </IconButton>
+            <RouterLink to={RoutePaths.CART}>
+                <S.ItemWrapper>
+                    <Cart width={ICON_SIZE} height={ICON_SIZE} />
+                </S.ItemWrapper>
+            </RouterLink>
+            <RouterLink to={RoutePaths.PROFILE}>
+                <S.ItemWrapper>
+                    <Profile width={ICON_SIZE} height={ICON_SIZE} />
+                </S.ItemWrapper>
+            </RouterLink>
         </S.ItemsWrapper>
     );
 };

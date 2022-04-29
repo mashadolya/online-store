@@ -16,9 +16,7 @@ const InputWithValidation = React.forwardRef<HTMLInputElement, InputFormTypes>(
         return (
             <>
                 <InputWithError {...rest} ref={ref} hasError={hasError} />
-                {errors[name]?.message && (
-                    <ErrorContainer className="error">{errors[name]?.message}</ErrorContainer>
-                )}
+                {errors[name]?.message && <ErrorContainer>{errors[name]?.message}</ErrorContainer>}
             </>
         );
     }

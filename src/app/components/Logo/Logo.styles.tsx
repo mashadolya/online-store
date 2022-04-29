@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 // TODO: Fix container size
 export const LogoContainer = styled.div`

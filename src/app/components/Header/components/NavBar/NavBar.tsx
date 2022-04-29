@@ -31,7 +31,7 @@ const NavBar = () => {
         <Button onClick={logOutHandler}>{AUTH_BUTTON_LABELS.SIGN_OUT}</Button>
     );
     return (
-        <S.NavBarContainer className="nav-bar-container">
+        <S.NavBarContainer>
             <NavIcons />
             <S.SignInButtonContainer>{AuthButton}</S.SignInButtonContainer>
             <AuthModal opened={opened} doClose={doClose} />

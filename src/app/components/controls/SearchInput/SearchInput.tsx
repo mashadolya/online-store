@@ -16,7 +16,7 @@ const SearchInput: FC = () => {
     const IconButton = isActive ? Close : Search;
 
     return (
-        <S.SearchInputContainer className="search-input-container" isSearching={isActive}>
+        <S.SearchInputContainer isSearching={isActive}>
             <S.SearchIconButton onClick={toggleSearch}>
                 <IconButton width={ICON_SIZE} height={ICON_SIZE} />
             </S.SearchIconButton>
