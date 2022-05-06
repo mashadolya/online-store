@@ -7,7 +7,7 @@ const { SESSION_INFO } = STORAGE_KEYS;
 
 export const getSession = (): SignInData | null => getData(SESSION_INFO);
 
-export const createSession = ({ email, userName }: { email: string; userName: string }): void =>
+export const createSession = ({ email, userName }: { email: string; userName: string }) =>
     storeData(SESSION_INFO, { email, userName });
 
 export const clearSession = (): void => removeItem(SESSION_INFO);

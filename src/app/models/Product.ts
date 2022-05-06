@@ -4,6 +4,7 @@ export interface Product {
     category: string;
     price: Price;
     src: string;
+    count: number;
 }
 
 interface Price {

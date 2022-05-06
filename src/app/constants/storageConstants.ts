@@ -1,4 +1,5 @@
 export const STORAGE_KEYS = {
     VALID_USERS: '[VALID_USERS]',
     SESSION_INFO: '[SESSION_INFO]',
+    CART_ITEMS: '[CART_ITEMS]',
 };

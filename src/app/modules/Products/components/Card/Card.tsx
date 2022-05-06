@@ -1,15 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC, SyntheticEvent } from 'react';
 import * as S from 'src/app/modules/Products/components/Card/Card.styles';
 import Image from 'src/app/components/Image/Image';
 import IconButton from 'src/app/components/controls/IconButton/IconButton';
 import { Icons } from 'src/app/components/Icons';
 import { Product } from 'src/app/models/Product';
+import { useAppDispatch } from 'src/app/hooks/useAppDispatch';
+import { addItemToCart } from 'src/app/modules/Cart/slices/cartSlice';
 
 const { Favorite, Cart } = Icons;
 
 const ICON_SIZE = 32;
 
-const Card: FC<Product> = ({ label, category, price, src }) => {
+const Card: FC<Product> = (product: Product) => {
+    const { src, label, category, price } = product;
+    const dispatch = useAppDispatch();
+
+    const addToCartHandler = (e: SyntheticEvent) => {
+        e.stopPropagation();
+        dispatch(addItemToCart(product));
+    };
+
     return (
         <S.ProductGridCard>
             <S.CardContainer>
@@ -29,7 +39,7 @@ const Card: FC<Product> = ({ label, category, price, src }) => {
                             <Favorite width={ICON_SIZE} height={ICON_SIZE} />
                         </IconButton>
                         <IconButton>
-                            <Cart width={ICON_SIZE} height={ICON_SIZE} />
+                            <Cart onClick={addToCartHandler} width={ICON_SIZE} height={ICON_SIZE} />
                         </IconButton>
                     </S.IconsContainer>
                 </S.CardBody>
