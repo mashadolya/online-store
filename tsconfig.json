@@ -1,40 +1,40 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "display": "Create React App",
-    "compilerOptions": {
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "module": "esnext",
-        "target": "es6",
-        "allowJs": true,
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "isolatedModules": true,
-        "jsx": "react-jsx",
-        "moduleResolution": "node",
-        "noEmit": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "strictNullChecks": true,
-        "resolveJsonModule": true,
-        "skipLibCheck": true,
-        "strict": true,
-        "typeRoots": ["./node_modules/@types"],
-        "baseUrl": "./",
-        "paths": {
-            "*": ["*"],
-            "src/*": ["./src/*"],
-        }
-    },
-    "include": ["src", "styled.d.ts" , "src/custom.d.ts"],
-    "exclude": [
-        "node_modules",
-        "build",
-        "scripts",
-        "acceptance-tests",
-        "webpack",
-        "jest",
-        "src/setupTests.ts"
-    ]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Create React App",
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "target": "es6",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "typeRoots": ["./node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "*": ["*"],
+      "src/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "styled.d.ts", "src/custom.d.ts"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ]
 }

@@ -1,6 +1,6 @@
 export interface ActionLinkTypes {
-    description: string;
-    linkText: string;
-    //TODO: ???
-    onClick: any;
+  description: string;
+  linkText: string;
+  //TODO: ???
+  onClick: any;
 }

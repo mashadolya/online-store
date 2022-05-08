@@ -6,11 +6,11 @@ import { CloseButtonTypes } from 'src/app/components/icons/CloseButton/CloseButt
 const { Close } = Icons;
 
 const CloseButton: FC<CloseButtonTypes> = ({ onClick, size }) => {
-    return (
-        <S.SearchIconButton onClick={onClick}>
-            <Close width={size} height={size} />
-        </S.SearchIconButton>
-    );
+  return (
+    <S.SearchIconButton onClick={onClick}>
+      <Close width={size} height={size} />
+    </S.SearchIconButton>
+  );
 };
 
 export default CloseButton;

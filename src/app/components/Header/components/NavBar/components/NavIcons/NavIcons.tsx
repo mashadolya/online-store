@@ -9,25 +9,25 @@ const { Cart, Profile, Favorite } = Icons;
 const ICON_SIZE = 32;
 
 const NavIcons = () => {
-    return (
-        <S.ItemsWrapper>
-            <RouterLink to={RoutePaths.FAVORITE}>
-                <S.ItemWrapper>
-                    <Favorite width={ICON_SIZE} height={ICON_SIZE} />
-                </S.ItemWrapper>
-            </RouterLink>
-            <RouterLink to={RoutePaths.CART}>
-                <S.ItemWrapper>
-                    <Cart width={ICON_SIZE} height={ICON_SIZE} />
-                </S.ItemWrapper>
-            </RouterLink>
-            <RouterLink to={RoutePaths.PROFILE}>
-                <S.ItemWrapper>
-                    <Profile width={ICON_SIZE} height={ICON_SIZE} />
-                </S.ItemWrapper>
-            </RouterLink>
-        </S.ItemsWrapper>
-    );
+  return (
+    <S.ItemsWrapper>
+      <RouterLink to={RoutePaths.FAVORITE}>
+        <S.ItemWrapper>
+          <Favorite width={ICON_SIZE} height={ICON_SIZE} />
+        </S.ItemWrapper>
+      </RouterLink>
+      <RouterLink to={RoutePaths.CART}>
+        <S.ItemWrapper>
+          <Cart width={ICON_SIZE} height={ICON_SIZE} />
+        </S.ItemWrapper>
+      </RouterLink>
+      <RouterLink to={RoutePaths.PROFILE}>
+        <S.ItemWrapper>
+          <Profile width={ICON_SIZE} height={ICON_SIZE} />
+        </S.ItemWrapper>
+      </RouterLink>
+    </S.ItemsWrapper>
+  );
 };
 
 export default NavIcons;

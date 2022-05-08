@@ -1,1 +1,1 @@
-export { default } from 'src/app/components/Form/controls/InputWithValidation/InputWithValidation';
+export { default } from './InputWithValidation';

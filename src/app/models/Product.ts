@@ -1,12 +1,13 @@
 export interface Product {
-    id: string;
-    label: string;
-    category: string;
-    price: Price;
-    src: string;
+  id: number;
+  label: string;
+  category: string;
+  price: Price;
+  src: string;
+  description: string;
 }
 
 interface Price {
-    value: string;
-    currency: string;
+  value: string;
+  currency: string;
 }

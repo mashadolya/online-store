@@ -1,15 +1,15 @@
 import { useCallback, useState } from 'react';
 
 export const useOpenClose = (initialState = false) => {
-    const [opened, setOpened] = useState(initialState);
+  const [opened, setOpened] = useState(initialState);
 
-    const doOpen = useCallback(() => {
-        setOpened(true);
-    }, []);
+  const doOpen = useCallback(() => {
+    setOpened(true);
+  }, []);
 
-    const doClose = useCallback(() => {
-        setOpened(false);
-    }, []);
+  const doClose = useCallback(() => {
+    setOpened(false);
+  }, []);
 
-    return [opened, doOpen, doClose] as const;
+  return [opened, doOpen, doClose] as const;
 };
