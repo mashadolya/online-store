@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "label": "T-short",
+    "category": "Men's clothes",
+    "price": {
+      "value": "21.99",
+      "currency": "USD"
+    },
+    "src": "https://futbokraina.com.ua/image/cache/new/catalog/GS/kepki/white-43761.jpg",
+    "description": "TOP T short"
+  },
+  {
+    "id": 2,
+    "label": "T-short 2",
+    "category": "Women's clothes",
+    "price": {
+      "value": "21.99",
+      "currency": "USD"
+    },
+    "src": "https://d2j6dbq0eux0bg.cloudfront.net/images/10796017/2523836432.jpg",
+    "description": "TOP T short 2"
+  },
+  {
+    "id": 3,
+    "label": "T-short 2",
+    "category": "Women's clothes",
+    "price": {
+      "value": "21.99",
+      "currency": "USD"
+    },
+    "src": "https://m.media-amazon.com/images/I/A13usaonutL._CLa%7C2140%2C2000%7C61DtqmzvRJL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UL1500_.png",
+    "description": "TOP T short 2"
+  },
+  {
+    "id": 4,
+    "label": "T-short 2",
+    "category": "Women's clothes",
+    "price": {
+      "value": "21.99",
+      "currency": "USD"
+    },
+    "src": "https://ae01.alicdn.com/kf/H7cae8e803ac34e4281eb235b219a7759v/Sssniperwolf-Toxic-Men-S-White-T-Shirt-Clothing-Men-S-T-Shirt-Size-S-Xxl-Harajuku.jpg_Q90.jpg_.webp",
+    "description": "TOP T short 2"
+  },
+  {
+    "id": 5,
+    "label": "T-short 2",
+    "category": "Men's clothes",
+    "price": {
+      "value": "21.99",
+      "currency": "USD"
+    },
+    "src": "https://keysi-shop.com.ua/image/cache/catalog/6323/9-800x800.jpg",
+    "description": "TOP T short 2"
+  }
+]

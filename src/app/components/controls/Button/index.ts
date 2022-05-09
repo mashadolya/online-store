@@ -1,1 +1,1 @@
-export { default } from 'src/app/components/controls/Button/Button';
+export { default } from './Button';

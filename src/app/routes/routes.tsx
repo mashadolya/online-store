@@ -4,20 +4,22 @@ import NotFoundPage from 'src/app/pages/NotFoundPage';
 import CartPage from 'src/app/modules/Cart/pages/CartPage';
 
 export enum RoutePaths {
-    HOME = '/',
-    NOT_FOUND = '*',
-    CART = '/cart',
+  HOME = '/',
+  NOT_FOUND = '*',
+  CART = '/cart',
+  FAVORITE = '/favorite',
+  PROFILE = '/profile',
 }
 
 export interface RouteTypes {
-    element: React.ComponentElement<any, any>;
-    index: boolean;
-    path?: RoutePaths;
+  element: JSX.Element;
+  index: boolean;
+  path?: RoutePaths;
 }
 
 export const PUBLIC_ROUTES: RouteTypes[] = [
-    { element: <Home />, index: false, path: RoutePaths.HOME },
-    { element: <NotFoundPage />, index: false, path: RoutePaths.NOT_FOUND },
-    { element: <Home />, index: true },
-    { element: <CartPage />, index: false, path: RoutePaths.CART },
+  { element: <Home />, index: false, path: RoutePaths.HOME },
+  { element: <NotFoundPage />, index: false, path: RoutePaths.NOT_FOUND },
+  { element: <Home />, index: true },
+  { element: <CartPage />, index: false, path: RoutePaths.CART },
 ];

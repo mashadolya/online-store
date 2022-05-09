@@ -10,33 +10,32 @@ import { useLogOut } from 'src/app/modules/Authentication/hooks/useLogOut';
 import { RoutePaths } from 'src/app/routes/routes';
 
 const AUTH_BUTTON_LABELS = {
-    SIGN_IN: 'Sign In',
-    SIGN_OUT: 'Sign Out',
+  SIGN_IN: 'Sign In',
+  SIGN_OUT: 'Sign Out',
 };
 
 const NavBar = () => {
-    const navigate = useNavigate();
-    const [opened, doOpen, doClose] = useOpenClose(false);
-    const isAuthorized = useAuth();
-    const [logOut] = useLogOut();
+  const navigate = useNavigate();
+  const [opened, openAuthModal, closeAuthModal] = useOpenClose(false);
+  const isAuthorized = useAuth();
+  const [logOut] = useLogOut();
 
-    const logOutHandler = useCallback(() => {
-        logOut();
-        navigate(RoutePaths.HOME);
-    }, []);
+  const logOutHandler = useCallback(() => {
+    logOut();
+    navigate(RoutePaths.HOME);
+  }, []);
 
-    const AuthButton = !isAuthorized ? (
-        <Button onClick={doOpen}>{AUTH_BUTTON_LABELS.SIGN_IN}</Button>
-    ) : (
-        <Button onClick={logOutHandler}>{AUTH_BUTTON_LABELS.SIGN_OUT}</Button>
-    );
-    return (
-        <S.NavBarContainer>
-            <S.SignInButtonContainer>{AuthButton}</S.SignInButtonContainer>
-            <AuthModal opened={opened} doClose={doClose} />
-            <NavIcons />
-        </S.NavBarContainer>
-    );
+  return (
+    <S.NavBarContainer>
+      <NavIcons />
+      <S.SignInButtonContainer>
+        <Button onClick={!isAuthorized ? openAuthModal : logOutHandler}>
+          {!isAuthorized ? AUTH_BUTTON_LABELS.SIGN_IN : AUTH_BUTTON_LABELS.SIGN_OUT}
+        </Button>
+      </S.SignInButtonContainer>
+      <AuthModal opened={opened} doClose={closeAuthModal} />
+    </S.NavBarContainer>
+  );
 };
 
 export default NavBar;

@@ -1,5 +1,3 @@
-import React, { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-    ref?: React.Ref<HTMLInputElement>;
-};
+export type InputProps = InputHTMLAttributes<HTMLInputElement>;

@@ -1,4 +1,4 @@
 export interface FormHeaderTypes {
-    title: string;
-    body?: string;
+  title: string;
+  body?: string;
 }

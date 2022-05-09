@@ -1,1 +1,1 @@
-export { default } from 'src/app/components/Modal/Modal';
+export { default } from './Modal';

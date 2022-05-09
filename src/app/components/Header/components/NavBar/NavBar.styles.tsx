@@ -1,12 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const NavBarContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 140px;
-    max-width: 140px;
+  display: flex;
 `;
 
 export const SignInButtonContainer = styled.div`
-    width: 100px;
+  padding: 0 30px;
+  width: 100px;
 `;
