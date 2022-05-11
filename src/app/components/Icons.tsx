@@ -5,9 +5,9 @@ import { ReactComponent as Profile } from 'src/assets/svg/profile.svg';
 import { ReactComponent as Favorite } from 'src/assets/svg/favorite.svg';
 
 export const Icons = {
-    Cart,
-    Search,
-    Close,
-    Profile,
-    Favorite,
+  Cart,
+  Search,
+  Close,
+  Profile,
+  Favorite,
 };

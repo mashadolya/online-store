@@ -1,4 +1,4 @@
 export interface AuthModalTypes {
-    opened: boolean;
-    doClose: () => void;
+  opened: boolean;
+  doClose: () => void;
 }

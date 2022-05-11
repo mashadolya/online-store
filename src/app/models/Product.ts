@@ -5,9 +5,10 @@ export interface Product {
     price: Price;
     src: string;
     count: number;
+  description: string;
 }
 
 interface Price {
-    value: string;
-    currency: string;
+  value: string;
+  currency: string;
 }

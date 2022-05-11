@@ -2,32 +2,22 @@ import { BrowserRouter } from 'react-router-dom';
 import * as S from 'src/app/components/containers/CenterContainer.styles';
 import Header from 'src/app/components/Header';
 import Router from 'src/app/components/Router';
-import { StyleWrapper } from 'src/app/components/theme/StyleWrapper/StyleWrapper';
-import { useEffect } from 'react';
-import { useAppDispatch } from 'src/app/hooks/useAppDispatch';
-import { createUser } from 'src/app/modules/Authentication/slices/authorizationSlice';
-import { getSession } from 'src/app/services/sessionService';
+import { StyleWrapper } from 'src/app/components/StyleWrapper/StyleWrapper';
+import { useSession } from 'src/app/hooks/useSession';
 
 function App() {
-    const dispatch = useAppDispatch();
+  useSession();
 
-    useEffect(() => {
-        const currentUser = getSession();
-        if (currentUser) {
-            dispatch(createUser(currentUser));
-        }
-    }, []);
-
-    return (
-        <StyleWrapper>
-            <BrowserRouter>
-                <Header />
-                <S.CenterContainer>
-                    <Router />
-                </S.CenterContainer>
-            </BrowserRouter>
-        </StyleWrapper>
-    );
+  return (
+    <StyleWrapper>
+      <BrowserRouter>
+        <Header />
+        <S.CenterContainer>
+          <Router />
+        </S.CenterContainer>
+      </BrowserRouter>
+    </StyleWrapper>
+  );
 }
 
 export default App;

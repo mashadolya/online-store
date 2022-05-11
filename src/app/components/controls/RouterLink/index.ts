@@ -1,1 +1,1 @@
-export { default } from 'src/app/components/controls/RouterLink/RouterLink';
+export { default } from './RouterLink';

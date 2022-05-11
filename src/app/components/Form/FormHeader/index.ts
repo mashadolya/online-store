@@ -1,1 +1,1 @@
-export { default } from 'src/app/components/Form/FormHeader/FormHeader';
+export { default } from './FormHeader';
