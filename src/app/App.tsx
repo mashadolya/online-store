@@ -1,30 +1,23 @@
-import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import Authentication from './modules/Authentication/Authentication';
-import NotFound from 'app/pages/NotFound';
-import Home from 'app/modules/Home/Home';
-import ROUTES from 'app/constants/routes';
-
-const { LOGIN } = ROUTES;
+import { BrowserRouter } from 'react-router-dom';
+import * as S from 'src/app/components/containers/CenterContainer.styles';
+import Header from 'src/app/components/Header';
+import Router from 'src/app/components/Router';
+import { StyleWrapper } from 'src/app/components/StyleWrapper/StyleWrapper';
+import { useSession } from 'src/app/hooks/useSession';
 
 function App() {
-    return (
-        <>
-            <BrowserRouter>
-                <header>
-                    <Link to={'/'}>Home</Link>
-                    <Link to={LOGIN}>Login</Link>
-                </header>
+  useSession();
 
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route index element={<Home />} />
-                    <Route path={LOGIN} element={<Authentication />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </BrowserRouter>
-        </>
-    );
+  return (
+    <StyleWrapper>
+      <BrowserRouter>
+        <Header />
+        <S.CenterContainer>
+          <Router />
+        </S.CenterContainer>
+      </BrowserRouter>
+    </StyleWrapper>
+  );
 }
 
 export default App;
