@@ -25,6 +25,14 @@ export const IconButtonWrapper = styled.button`
     transform: scale(0.6);
     opacity: 0;
   }
+
+  span {
+    position: relative;
+    top: -29px;
+    display: inline-block;
+    right: -14px;
+    font-size: 12px;
+  }
 `;
 
 export const Icon = styled.div`

@@ -25,13 +25,15 @@ const NavBar = () => {
     navigate(RoutePaths.HOME);
   }, []);
 
+  const btnProps = isAuthorized
+    ? { onClick: logOutHandler, label: AUTH_BUTTON_LABELS.SIGN_OUT }
+    : { onClick: openAuthModal, label: AUTH_BUTTON_LABELS.SIGN_IN };
+
   return (
     <S.NavBarContainer>
       <NavIcons />
       <S.SignInButtonContainer>
-        <Button onClick={!isAuthorized ? openAuthModal : logOutHandler}>
-          {!isAuthorized ? AUTH_BUTTON_LABELS.SIGN_IN : AUTH_BUTTON_LABELS.SIGN_OUT}
-        </Button>
+        <Button onClick={btnProps.onClick}>{btnProps.label}</Button>
       </S.SignInButtonContainer>
       <AuthModal opened={opened} doClose={closeAuthModal} />
     </S.NavBarContainer>

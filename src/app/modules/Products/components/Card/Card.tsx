@@ -1,15 +1,20 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import * as S from 'src/app/modules/Products/components/Card/Card.styles';
 import Image from 'src/app/components/Image';
 import IconButton from 'src/app/components/controls/IconButton';
 import { Icons } from 'src/app/components/Icons';
 import { Product } from 'src/app/models/Product';
+import { useCartActions } from 'src/app/modules/Cart/hooks/useCartActions';
 
 const { Favorite, Cart } = Icons;
 
 const ICON_SIZE = 32;
 
-const Card: FC<Product> = ({ label, category, price, src }) => {
+const Card: FC<Product> = (product: Product) => {
+  const { src, label, category, price } = product;
+
+  const { addItem } = useCartActions(product);
+
   return (
     <S.ProductGridCard>
       <S.CardContainer>
@@ -29,7 +34,7 @@ const Card: FC<Product> = ({ label, category, price, src }) => {
               <Favorite width={ICON_SIZE} height={ICON_SIZE} />
             </IconButton>
             <IconButton>
-              <Cart width={ICON_SIZE} height={ICON_SIZE} />
+              <Cart onClick={e => addItem(e)} width={ICON_SIZE} height={ICON_SIZE} />
             </IconButton>
           </S.IconsContainer>
         </S.CardBody>

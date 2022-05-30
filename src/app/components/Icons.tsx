@@ -3,6 +3,7 @@ import { ReactComponent as Search } from 'src/assets/svg/search.svg';
 import { ReactComponent as Close } from 'src/assets/svg/close.svg';
 import { ReactComponent as Profile } from 'src/assets/svg/profile.svg';
 import { ReactComponent as Favorite } from 'src/assets/svg/favorite.svg';
+import { ReactComponent as Trash } from 'src/assets/svg/trash.svg';
 
 export const Icons = {
   Cart,
@@ -10,4 +11,5 @@ export const Icons = {
   Close,
   Profile,
   Favorite,
+  Trash,
 };
