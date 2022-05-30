@@ -1,6 +1,10 @@
 import { SyntheticEvent } from 'react';
 import { useAppDispatch } from 'src/app/hooks/useAppDispatch';
-import { addItemToCart, removeItemFromCart } from 'src/app/store/slices/cart/cartSlice';
+import {
+  addItemToCart,
+  removeItemFromCart,
+  changeQuantity,
+} from 'src/app/store/slices/cart/cartSlice';
 import { Product } from 'src/app/models/Product';
 
 export const useCartActions = (product: Product) => {
@@ -19,5 +23,10 @@ export const useCartActions = (product: Product) => {
     dispatchItem(e, addItemToCart(product));
   };
 
-  return { removeItem, addItem };
+  const changeItemQuantity = (id: number, count: number) => {
+    const payload = { id, count };
+    dispatch(changeQuantity(payload));
+  };
+
+  return { removeItem, addItem, changeItemQuantity };
 };
