@@ -1,4 +1,4 @@
-import { createSlice, Draft } from '@reduxjs/toolkit';
+import { createSlice, current, Draft } from '@reduxjs/toolkit';
 import { getCartItems, storeCartItems } from 'src/app/modules/Cart/services/cartStorage';
 import { Product } from 'src/app/models/Product';
 import { CartItemModel } from 'src/app/modules/Cart/models/cartItemModel';
@@ -15,11 +15,11 @@ export const cartSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     addItemToCart: (state, { payload }: { payload: Product }) => {
-      const storedItem = state.itemsInCart.find(cartItem => cartItem.item.id === payload.id);
+      const storedItem = findItemById(state.itemsInCart, payload.id);
 
       if (storedItem) {
         storedItem.count++;
-        const restItems = getRestItems(state, payload);
+        const restItems = getRestItems(state, payload.id);
         state.itemsInCart = [...restItems, storedItem];
       } else {
         const itemToStore: CartItemModel<Product> = {
@@ -32,17 +32,34 @@ export const cartSlice = createSlice({
     },
 
     removeItemFromCart: (state, { payload }: { payload: Product }) => {
-      const restItems = getRestItems(state, payload);
+      const restItems = getRestItems(state, payload.id);
       state.itemsInCart = restItems;
       storeCartItems(restItems);
+    },
+
+    changeQuantity: (state, { payload }: { payload: { id: number; count: number } }) => {
+      const item = findItemById(state.itemsInCart, payload.id);
+      if (item) {
+        item.count = payload.count;
+        const restItems = getRestItems(state, payload.id);
+        restItems.push(item);
+        state.itemsInCart = restItems;
+        storeCartItems(restItems);
+      }
     },
   },
 });
 
-const getRestItems = (state: Draft<{ itemsInCart: CartItemModel<Product>[] }>, payload: Product) =>
+const getRestItems = (
+  state: Draft<{ itemsInCart: CartItemModel<Product>[] }>,
+  itemToExcludeId: number
+) =>
   state.itemsInCart.filter((cartItem: CartItemModel<Product>) => {
-    return cartItem.item.id !== payload.id;
+    return cartItem.item.id !== itemToExcludeId;
   });
 
-export const { addItemToCart, removeItemFromCart } = cartSlice.actions;
+const findItemById = (itemList: CartItemModel<Product>[], id: number) =>
+  itemList.find(cartItem => cartItem.item.id === id);
+
+export const { addItemToCart, removeItemFromCart, changeQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

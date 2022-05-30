@@ -4,13 +4,14 @@ import { Icons } from 'src/app/components/Icons';
 import IconButton from 'src/app/components/controls/IconButton';
 import { useCartActions } from 'src/app/modules/Cart/hooks/useCartActions';
 import { CartItemTypes } from 'src/app/modules/Cart/components/CartItem/CartItem.types';
+import Select from 'src/app/components/controls/Select/Select';
 
 const { Favorite, Trash } = Icons;
 
 const ICON_SIZE = 20;
 
 const CartItem: FC<CartItemTypes> = ({ cartItem }) => {
-  const { removeItem } = useCartActions(cartItem.item);
+  const { removeItem, changeItemQuantity } = useCartActions(cartItem.item);
 
   const {
     src,
@@ -18,6 +19,10 @@ const CartItem: FC<CartItemTypes> = ({ cartItem }) => {
     description,
     price: { value, currency },
   } = cartItem.item;
+
+  const handleQuantity = (value: string) => {
+    changeItemQuantity(cartItem.item.id, parseInt(value));
+  };
 
   return (
     <S.CartItemContainer>
@@ -35,6 +40,13 @@ const CartItem: FC<CartItemTypes> = ({ cartItem }) => {
             </div>
           </S.CartItemDescription>
           <div>{cartItem.count} count</div>
+          <Select
+            label={'Quantity'}
+            value={cartItem.count.toString()}
+            // TODO: Implement get options from props
+            options={['1', '2', '3']}
+            onChange={handleQuantity}
+          />
         </S.CartItemInfoContainer>
         <S.CartItemActionsContainer>
           <IconButton>
