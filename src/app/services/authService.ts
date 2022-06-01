@@ -3,10 +3,11 @@ import { getData, storeData } from 'src/localStorage/storageActions';
 import { removeItem } from 'src/localStorage/localStorage';
 import { SignInData } from 'src/app/modules/Authentication/components/UniversalForm/UniversalForm.types';
 
-const { SESSION_INFO } = STORAGE_KEYS;
+const { REFRESH_TOKEN } = STORAGE_KEYS;
 
-export const getSession = (): SignInData | null => getData(SESSION_INFO);
+export const getRefreshToken = (): SignInData | null => getData(REFRESH_TOKEN);
 
-export const createSession = ({ email }: { email: string }) => storeData(SESSION_INFO, { email });
+export const storeRefreshToken = (refreshToken: string) =>
+  storeData(STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
 
-export const clearSession = () => removeItem(SESSION_INFO);
+export const clearRefreshToken = () => removeItem(REFRESH_TOKEN);

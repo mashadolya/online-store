@@ -1,3 +1,3 @@
-import { getSession } from 'src/app/services/sessionService';
+import { getRefreshToken } from 'src/app/services/authService';
 
-export const useAuth = (): boolean => !!getSession();
+export const useAuth = (): boolean => !!getRefreshToken();

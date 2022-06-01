@@ -7,7 +7,7 @@ export const useLogOut = () => {
   const dispatch = useAppDispatch();
 
   const logOut = useCallback(() => {
-    localStorage.removeItem(STORAGE_KEYS.SESSION_INFO);
+    localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN);
     dispatch(removeUser());
   }, []);
 
