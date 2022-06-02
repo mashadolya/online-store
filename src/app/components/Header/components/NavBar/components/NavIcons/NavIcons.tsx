@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useAppSelector } from 'src/app/hooks/useAppSelector';
+import { useAppSelector } from 'src/app/store/hooks/useAppSelector';
 import RouterLink from 'src/app/components/controls/RouterLink';
 import * as S from 'src/app/components/Header/components/NavBar/components/NavIcons/NavIcons.styles';
 import { Icons } from 'src/app/components/Icons';
