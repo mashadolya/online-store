@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react';
-import { useAppSelector } from 'src/app/hooks/useAppSelector';
+import { useAppSelector } from 'src/app/store/hooks/useAppSelector';
 import CartItem from 'src/app/modules/Cart/components/CartItem';
 import CartSummary from 'src/app/modules/Cart/components/CartSummary';
 import { isEmptyArray } from 'src/utils/isEmptyArray';

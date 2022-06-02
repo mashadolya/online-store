@@ -1,5 +1,5 @@
 import { SyntheticEvent } from 'react';
-import { useAppDispatch } from 'src/app/hooks/useAppDispatch';
+import { useAppDispatch } from 'src/app/store/hooks/useAppDispatch';
 import {
   addItemToCart,
   removeItemFromCart,
