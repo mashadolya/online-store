@@ -4,4 +4,5 @@ export interface ModalTypes {
   children: React.ReactNode;
   visible: boolean;
   doClose: () => void;
+  id?: string;
 }
