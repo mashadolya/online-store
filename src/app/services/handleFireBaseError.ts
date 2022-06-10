@@ -1,30 +1,19 @@
-import {
-  EMAIL_IN_USE,
-  INCORRECT_EMAIL_OR_PASSWORD,
-  INCORRECT_PASSWORD,
-} from 'src/app/modules/Authentication/components/AuthModal/constants/errorMessages';
-import { SOMETHING_WENT_WRONG } from 'src/app/constants/errorMessages';
-
+import { ERROR_MESSAGES } from 'src/app/constants/errorMessages';
 import { AuthErrorCodes } from 'firebase/auth';
+import { AUTHORIZATION_ERROR_MESSAGES } from 'src/app/modules/Authentication/components/AuthModal/constants/errorMessages';
 
-export const handleFireBaseError = (error: any): { errorMessage: string } => {
-  const { code } = error;
-  let message = '';
-  switch (code) {
+const { INCORRECT_EMAIL_OR_PASSWORD, INCORRECT_PASSWORD, EMAIL_IN_USE } =
+  AUTHORIZATION_ERROR_MESSAGES;
+
+export const handleFireBaseError = (error: any): string => {
+  switch (error.code) {
     case AuthErrorCodes.INVALID_PASSWORD:
-      message = INCORRECT_PASSWORD;
-      break;
+      return INCORRECT_PASSWORD;
     case AuthErrorCodes.USER_DELETED:
-      message = INCORRECT_EMAIL_OR_PASSWORD;
-      break;
+      return INCORRECT_EMAIL_OR_PASSWORD;
     case AuthErrorCodes.EMAIL_EXISTS:
-      message = EMAIL_IN_USE;
-      break;
+      return EMAIL_IN_USE;
     default:
-      message = SOMETHING_WENT_WRONG;
+      return ERROR_MESSAGES.SOMETHING_WENT_WRONG;
   }
-
-  return {
-    errorMessage: message,
-  };
 };

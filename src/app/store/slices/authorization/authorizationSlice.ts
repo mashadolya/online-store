@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AuthState } from 'src/app/store/slices/authorization/authorizationSlice.types';
 import { User } from 'src/app/models/User';
-import { STORAGE_KEYS } from 'src/localStorage/storageKeys';
-import { getRefreshToken } from 'src/app/services/authService';
+import { clearRefreshToken, getRefreshToken } from 'src/app/services/authService';
 
 export const AUTH_REDUCER_NAME = 'auth';
 
@@ -22,7 +21,7 @@ export const authorizationSlice = createSlice({
     clearSession: state => {
       state.isAuthorized = false;
       state.user = {} as User;
-      localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN);
+      clearRefreshToken();
     },
   },
 });

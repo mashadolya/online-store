@@ -39,8 +39,8 @@ const AuthModal: FC<AuthModalTypes> = ({ opened, doClose }) => {
 
   const ActionLink = useActionLink({ openSignInForm, openSignUpForm, modalType });
 
-  const [signInUser] = useSignIn(doClose, setLoginErrors);
-  const [signUpUser] = useSignUp(doClose, setLoginErrors);
+  const signInUser = useSignIn(doClose, setLoginErrors);
+  const signUpUser = useSignUp(doClose, setLoginErrors);
   const onSubmit = modalType === SIGN_IN ? signInUser : signUpUser;
 
   return (

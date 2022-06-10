@@ -12,7 +12,7 @@ export const useLogOut = () => {
   const auth = getAuth();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  let errorMessage = '';
+  let errorDescription = '';
 
   const logOut = useCallback(() => {
     signOut(auth)
@@ -21,10 +21,10 @@ export const useLogOut = () => {
         navigate(RoutePaths.HOME);
       })
       .catch(error => {
-        ({ errorMessage } = handleFireBaseError(error));
+        errorDescription = handleFireBaseError(error);
         toggleToast.error(error);
       });
-    return errorMessage;
+    return errorDescription;
   }, []);
 
   return [logOut];

@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useCallback } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { createSession } from 'src/app/store/slices/authorization/authorizationSlice';
 import { useAppDispatch } from 'src/app/store/hooks/useAppDispatch';
 import { User } from 'src/app/models/User';
@@ -17,7 +17,7 @@ export const useSignUp = (
 ) => {
   const dispatch = useAppDispatch();
 
-  const signUpUser = useCallback((values: SignUpFormTypes) => {
+  return useCallback((values: SignUpFormTypes) => {
     const { confirmPassword, ...currentUser } = values;
 
     createUserWithEmailAndPassword(getAuth(firebaseApp), values.email, values.password)
@@ -27,10 +27,7 @@ export const useSignUp = (
         doCloseCallback();
       })
       .catch(error => {
-        const { errorMessage } = handleFireBaseError(error);
-        setLoginErrors(errorMessage);
+        setLoginErrors(handleFireBaseError(error));
       });
   }, []);
-
-  return [signUpUser];
 };

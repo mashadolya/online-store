@@ -19,6 +19,8 @@ export const ErrorCard = styled.div`
 `;
 
 export const ErrorLink = styled.span`
-  cursor: pointer;
   color: ${({ theme }) => theme.color.red};
+  &:hover {
+    cursor: pointer;
+  }
 `;

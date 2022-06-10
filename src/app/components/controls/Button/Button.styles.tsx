@@ -9,13 +9,17 @@ export const ButtonContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.color.black};
   border-radius: ${({ theme }) => theme.bo.small};
   color: ${({ theme }) => theme.color.light001};
-  cursor: pointer;
   font-size: ${({ theme }) => theme.sz.s4};
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Button = styled.button`
   width: 100%;
   font-size: inherit;
   color: inherit;
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 `;

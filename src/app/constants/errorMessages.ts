@@ -1,2 +1,4 @@
-export const SOMETHING_WENT_WRONG = 'Oops, Something Went Wrong...';
-export const AN_ERROR_IN_LOADING_PAGE = 'There was an error in loading this page.';
+export const ERROR_MESSAGES = {
+  SOMETHING_WENT_WRONG: 'Oops, Something Went Wrong...',
+  LOADING_PAGE_ERROR: 'There was an error in loading this page.',
+};

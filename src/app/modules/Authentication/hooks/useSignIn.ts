@@ -3,7 +3,7 @@ import { SignInData } from 'src/app/modules/Authentication/components/UniversalF
 import { createSession } from 'src/app/store/slices/authorization/authorizationSlice';
 import { useAppDispatch } from 'src/app/store/hooks/useAppDispatch';
 import { storeRefreshToken } from 'src/app/services/authService';
-import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { firebaseApp } from 'src/firebase/firebase';
 import { handleFireBaseError } from 'src/app/services/handleFireBaseError';
 
@@ -13,7 +13,7 @@ export const useSignIn = (
 ) => {
   const dispatch = useAppDispatch();
 
-  const signInUser = useCallback((values: SignInData) => {
+  return useCallback((values: SignInData) => {
     signInWithEmailAndPassword(getAuth(firebaseApp), values.email, values.password)
       .then(response => {
         storeRefreshToken(response.user.refreshToken);
@@ -21,10 +21,7 @@ export const useSignIn = (
         doCloseCallback();
       })
       .catch(error => {
-        const { errorMessage } = handleFireBaseError(error);
-        setLoginErrors(errorMessage);
+        setLoginErrors(handleFireBaseError(error));
       });
   }, []);
-
-  return [signInUser];
 };

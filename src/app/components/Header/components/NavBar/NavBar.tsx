@@ -14,7 +14,7 @@ const AUTH_BUTTON_LABELS = {
 
 const NavBar = () => {
   const [opened, openAuthModal, closeAuthModal] = useOpenClose(false);
-  const [isAuthorized] = useIsAuthorized();
+  const isAuthorized = useIsAuthorized();
   const [logOut] = useLogOut();
 
   const buttonProps = useMemo(
