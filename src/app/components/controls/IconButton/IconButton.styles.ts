@@ -6,10 +6,10 @@ export const IconButtonWrapper = styled.button`
   height: 32px;
   border: none;
   z-index: 1;
-  cursor: pointer;
   background: none;
   &:hover {
     color: ${({ theme }) => theme.color.teal};
+    cursor: pointer;
   }
 
   &::after {
@@ -42,8 +42,8 @@ export const Icon = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  cursor: pointer;
   &:hover {
     fill: ${({ theme }) => theme.color.teal};
+    cursor: pointer;
   }
 `;

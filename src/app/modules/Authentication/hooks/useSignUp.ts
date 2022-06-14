@@ -1,12 +1,11 @@
 import { Dispatch, SetStateAction, useCallback } from 'react';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { createSession } from 'src/app/store/slices/authorization/authorizationSlice';
 import { useAppDispatch } from 'src/app/store/hooks/useAppDispatch';
 import { User } from 'src/app/models/User';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { firebaseApp } from 'src/firebase/firebase';
 import { storeRefreshToken } from 'src/app/services/authService';
-import { ERROR_CODES } from 'src/firebase/constants/errorCodes';
-import { EMAIL_ALREADY_IN_USE } from 'src/app/modules/Authentication/components/AuthModal/constants/errorMessages';
+import { handleFireBaseError } from 'src/app/services/handleFireBaseError';
 
 interface SignUpFormTypes extends User {
   confirmPassword: string;
@@ -18,7 +17,7 @@ export const useSignUp = (
 ) => {
   const dispatch = useAppDispatch();
 
-  const signUpUser = useCallback((values: SignUpFormTypes) => {
+  return useCallback((values: SignUpFormTypes) => {
     const { confirmPassword, ...currentUser } = values;
 
     createUserWithEmailAndPassword(getAuth(firebaseApp), values.email, values.password)
@@ -28,11 +27,7 @@ export const useSignUp = (
         doCloseCallback();
       })
       .catch(error => {
-        if (error.code === ERROR_CODES.AUTH.EMAIL_ALREADY_IN_USE) {
-          setLoginErrors(EMAIL_ALREADY_IN_USE);
-        }
+        setLoginErrors(handleFireBaseError(error));
       });
   }, []);
-
-  return [signUpUser];
 };

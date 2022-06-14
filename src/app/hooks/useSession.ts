@@ -7,9 +7,9 @@ export const useSession = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const currentUser = getRefreshToken();
-    if (currentUser) {
-      dispatch(createSession(currentUser));
+    const refreshToken = getRefreshToken();
+    if (refreshToken) {
+      dispatch(createSession(refreshToken));
     }
   }, []);
 };

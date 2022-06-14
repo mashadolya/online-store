@@ -9,5 +9,7 @@ export const ActionLinkContainer = styled.div`
 
 export const Link = styled.a`
   text-decoration: underline;
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 `;

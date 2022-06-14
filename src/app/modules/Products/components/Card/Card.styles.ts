@@ -7,9 +7,9 @@ export const CardContainer = styled.a`
   min-height: 200px;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
   &:hover {
     border: 1px solid ${({ theme }) => theme.color.teal};
+    cursor: pointer;
   }
 `;
 
