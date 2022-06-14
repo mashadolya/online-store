@@ -1,15 +1,15 @@
-import { useAppDispatch } from 'src/app/hooks/useAppDispatch';
+import { useAppDispatch } from 'src/app/store/hooks/useAppDispatch';
 import { useEffect } from 'react';
-import { getSession } from 'src/app/services/sessionService';
-import { createUser } from 'src/app/store/slices/authorization/authorizationSlice';
+import { getRefreshToken } from 'src/app/services/authService';
+import { createSession } from 'src/app/store/slices/authorization/authorizationSlice';
 
 export const useSession = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const currentUser = getSession();
-    if (currentUser) {
-      dispatch(createUser(currentUser));
+    const refreshToken = getRefreshToken();
+    if (refreshToken) {
+      dispatch(createSession(refreshToken));
     }
   }, []);
 };

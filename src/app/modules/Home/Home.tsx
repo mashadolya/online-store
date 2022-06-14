@@ -1,4 +1,4 @@
-import { useAppSelector } from 'src/app/hooks/useAppSelector';
+import { useAppSelector } from 'src/app/store/hooks/useAppSelector';
 import { FC } from 'react';
 import CardList from 'src/app/modules/Products/components/CardList';
 import PRODUCTS from 'src/app/mocks/products.json';

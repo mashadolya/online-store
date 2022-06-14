@@ -1,31 +1,33 @@
-import { useCallback } from 'react';
-import {
-  getUserFromStore,
-  storeUser,
-} from 'src/app/modules/Authentication/services/userLocalStorage';
-
-import { createUser } from 'src/app/store/slices/authorization/authorizationSlice';
-import { createSession } from 'src/app/services/sessionService';
-import { useAppDispatch } from 'src/app/hooks/useAppDispatch';
+import { Dispatch, SetStateAction, useCallback } from 'react';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { createSession } from 'src/app/store/slices/authorization/authorizationSlice';
+import { useAppDispatch } from 'src/app/store/hooks/useAppDispatch';
 import { User } from 'src/app/models/User';
+import { firebaseApp } from 'src/firebase/firebase';
+import { storeRefreshToken } from 'src/app/services/authService';
+import { handleFireBaseError } from 'src/app/services/handleFireBaseError';
 
 interface SignUpFormTypes extends User {
   confirmPassword: string;
 }
 
-export const useSignUp = (doCloseCallback: () => void) => {
+export const useSignUp = (
+  doCloseCallback: () => void,
+  setLoginErrors: Dispatch<SetStateAction<string>>
+) => {
   const dispatch = useAppDispatch();
 
-  const signUpUser = useCallback((values: SignUpFormTypes) => {
-    const userStored = getUserFromStore(values?.email);
-    if (!userStored) {
-      const { confirmPassword, ...currentUser } = values;
-      storeUser(currentUser);
-      dispatch(createUser(currentUser));
-      createSession(currentUser);
-    }
-    doCloseCallback();
-  }, []);
+  return useCallback((values: SignUpFormTypes) => {
+    const { confirmPassword, ...currentUser } = values;
 
-  return [signUpUser];
+    createUserWithEmailAndPassword(getAuth(firebaseApp), values.email, values.password)
+      .then(userCredential => {
+        storeRefreshToken(userCredential.user.refreshToken);
+        dispatch(createSession(currentUser));
+        doCloseCallback();
+      })
+      .catch(error => {
+        setLoginErrors(handleFireBaseError(error));
+      });
+  }, []);
 };
