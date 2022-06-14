@@ -4,8 +4,8 @@ import Button from 'src/app/components/controls/Button';
 import AuthModal from 'src/app/modules/Authentication/components/AuthModal/AuthModal';
 import * as S from 'src/app/components/Header/components/NavBar/NavBar.styles';
 import { useOpenClose } from 'src/app/hooks/useOpenClose';
-import { useIsAuthorized } from 'src/app/hooks/useIsAuthorized';
 import { useLogOut } from 'src/app/modules/Authentication/hooks/useLogOut';
+import { selectIsAuthorized } from 'src/app/store/slices/authorization/selectors';
 
 const AUTH_BUTTON_LABELS = {
   SIGN_IN: 'Sign In',
@@ -14,8 +14,8 @@ const AUTH_BUTTON_LABELS = {
 
 const NavBar = () => {
   const [opened, openAuthModal, closeAuthModal] = useOpenClose(false);
-  const isAuthorized = useIsAuthorized();
-  const [logOut] = useLogOut();
+  const isAuthorized = selectIsAuthorized();
+  const logOut = useLogOut();
 
   const buttonProps = useMemo(
     () =>

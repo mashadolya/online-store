@@ -27,5 +27,5 @@ export const useLogOut = () => {
     return errorDescription;
   }, []);
 
-  return [logOut];
+  return logOut;
 };

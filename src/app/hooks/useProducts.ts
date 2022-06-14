@@ -3,13 +3,13 @@ import { getDatabase, onValue, ref } from 'firebase/database';
 import { Product } from 'src/app/models/Product';
 import { useAppDispatch } from 'src/app/store/hooks/useAppDispatch';
 import { saveProducts } from 'src/app/store/slices/products/productsSlise';
-import { useAppSelector } from 'src/app/store/hooks/useAppSelector';
+import { selectAvailableProducts } from 'src/app/store/slices/products/selectors';
 
 const REF_NAME = 'products';
 
-export const useProducts = (): [Product[]] => {
+export const useProducts = (): Product[] => {
   const dispatch = useAppDispatch();
-  const products = useAppSelector(({ products }) => products.availableProducts);
+  const products = selectAvailableProducts();
 
   useEffect(() => {
     const db = getDatabase();
@@ -20,5 +20,5 @@ export const useProducts = (): [Product[]] => {
     });
   }, []);
 
-  return [products];
+  return products;
 };

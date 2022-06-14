@@ -10,7 +10,7 @@ const { CART_ITEMS } = STORAGE_KEYS;
 export const getCartItems = () => getData(CART_ITEMS);
 
 export const storeCartItems = (items: CartItemModel<Product>[]) => {
-  if (isEmptyArray(items.length)) {
+  if (isEmptyArray(items)) {
     removeItem(CART_ITEMS);
     return;
   }

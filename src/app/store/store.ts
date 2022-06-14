@@ -1,17 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authorizationReducer, {
-  AUTH_REDUCER_NAME,
+  AUTH_REDUCER,
 } from 'src/app/store/slices/authorization/authorizationSlice';
-import cartReducer, { CART_REDUCER_NAME } from 'src/app/store/slices/cart/cartSlice';
-import productsReducer, {
-  PRODUCTS_REDUCER_NAME,
-} from 'src/app/store/slices/products/productsSlise';
+import cartReducer, { CART_REDUCER } from 'src/app/store/slices/cart/cartSlice';
+import productsReducer, { PRODUCTS_REDUCER } from 'src/app/store/slices/products/productsSlise';
 
 export const store = configureStore({
   reducer: {
-    [AUTH_REDUCER_NAME]: authorizationReducer,
-    [CART_REDUCER_NAME]: cartReducer,
-    [PRODUCTS_REDUCER_NAME]: productsReducer,
+    [AUTH_REDUCER]: authorizationReducer,
+    [CART_REDUCER]: cartReducer,
+    [PRODUCTS_REDUCER]: productsReducer,
   },
 });
 

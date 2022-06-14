@@ -1,17 +1,17 @@
 import { FC } from 'react';
-import { useAppSelector } from 'src/app/store/hooks/useAppSelector';
 
 import CardList from 'src/app/modules/Products/components/CardList';
 import { useProducts } from 'src/app/hooks/useProducts';
+import { selectIsAuthorized, selectUser } from 'src/app/store/slices/authorization/selectors';
 
 const Home: FC = () => {
-  const isAuth = useAppSelector(({ auth }) => auth.isAuthorized);
-  const email = useAppSelector(({ auth }) => auth.user.email);
-  const [products] = useProducts();
+  const products = useProducts();
+  const user = selectUser();
+  const isAuthorized = selectIsAuthorized();
 
   return (
     <>
-      {isAuth ? <h2>{`Welcome, Dear toxic ${email}!`}</h2> : <h2>Home Page</h2>}
+      {isAuthorized ? <h2>{`Welcome, Dear toxic ${user.email}!`}</h2> : <h2>Home Page</h2>}
       <CardList products={products} />
     </>
   );

@@ -3,7 +3,7 @@ import { AuthState } from 'src/app/store/slices/authorization/authorizationSlice
 import { User } from 'src/app/models/User';
 import { clearRefreshToken, getRefreshToken } from 'src/app/services/authService';
 
-export const AUTH_REDUCER_NAME = 'auth';
+export const AUTH_REDUCER = 'auth';
 
 const INITIAL_STATE: AuthState = {
   isAuthorized: !!getRefreshToken(),
@@ -11,7 +11,7 @@ const INITIAL_STATE: AuthState = {
 };
 
 export const authorizationSlice = createSlice({
-  name: AUTH_REDUCER_NAME,
+  name: AUTH_REDUCER,
   initialState: INITIAL_STATE,
   reducers: {
     createSession: (state, { payload: user }) => {

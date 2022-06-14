@@ -27,6 +27,7 @@ export const InputContent = styled.input<{ type?: string }>`
   width: 100%;
   height: 100%;
   color: ${({ type, theme: { color } }) => (isSubmit(type) ? color.light003 : color.black)};
+
   &:hover {
     cursor: ${({ type }) => (isSubmit(type) ? 'pointer' : 'auto')};
   }

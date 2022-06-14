@@ -6,7 +6,7 @@ import Header from 'src/app/components/Header';
 import Router from 'src/app/components/Router';
 import { StyleWrapper } from 'src/app/components/StyleWrapper/StyleWrapper';
 import { useSession } from 'src/app/hooks/useSession';
-import ReloadPageError from 'src/app/components/error/ReloadPageError';
+import ErrorOccurredPage from 'src/app/components/error/ReloadPageError';
 import 'react-toastify/ReactToastify.min.css';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <StyleWrapper>
-      <ErrorBoundary FallbackComponent={ReloadPageError}>
+      <ErrorBoundary FallbackComponent={ErrorOccurredPage}>
         <BrowserRouter>
           <Header />
           <S.CenterContainer>
