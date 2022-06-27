@@ -3,7 +3,7 @@ import { getCartItems, storeCartItems } from 'src/app/modules/Cart/services/cart
 import { Product } from 'src/app/models/Product';
 import { CartItemModel } from 'src/app/modules/Cart/models/cartItemModel';
 
-export const CART_REDUCER_NAME = 'cart';
+export const CART_REDUCER = 'cart';
 const INITIAL_COUNT = 0;
 
 const INITIAL_STATE = {
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 };
 
 export const cartSlice = createSlice({
-  name: CART_REDUCER_NAME,
+  name: CART_REDUCER,
   initialState: INITIAL_STATE,
   reducers: {
     addItemToCart: (state, { payload }: { payload: Product }) => {

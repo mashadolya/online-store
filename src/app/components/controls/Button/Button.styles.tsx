@@ -10,6 +10,7 @@ export const ButtonContainer = styled.div`
   border-radius: ${({ theme }) => theme.bo.small};
   color: ${({ theme }) => theme.color.light001};
   font-size: ${({ theme }) => theme.sz.s4};
+
   &:hover {
     cursor: pointer;
   }
@@ -19,6 +20,7 @@ export const Button = styled.button`
   width: 100%;
   font-size: inherit;
   color: inherit;
+
   &:hover {
     cursor: pointer;
   }

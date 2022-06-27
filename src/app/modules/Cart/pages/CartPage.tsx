@@ -1,5 +1,4 @@
 import { FC, useMemo } from 'react';
-import { useAppSelector } from 'src/app/store/hooks/useAppSelector';
 import CartItem from 'src/app/modules/Cart/components/CartItem';
 import CartSummary from 'src/app/modules/Cart/components/CartSummary';
 import { isEmptyArray } from 'src/utils/isEmptyArray';
@@ -7,13 +6,14 @@ import * as S from 'src/app/modules/Cart/pages/CartPage.styles';
 import { getRandomInt } from 'src/utils/getRandomInt';
 import { Product } from 'src/app/models/Product';
 import { CartItemModel } from 'src/app/modules/Cart/models/cartItemModel';
+import { selectItemsInCart } from 'src/app/store/slices/cart/selectors';
 
 const MAX_SHIPPING_COST = 200;
 // TODO: ???
 const CURRENCY = 'USD';
 
 const CartPage: FC = () => {
-  const cartItems = useAppSelector(({ cart }) => cart.itemsInCart);
+  const cartItems = selectItemsInCart();
 
   // NOTE: Just a simulation of real store behavior
   const shippingCost = useMemo(() => getRandomInt({ max: MAX_SHIPPING_COST }), []);

@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore/lite';
 import { firebaseConfig } from 'src/firebase/config';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 export const firebaseApp = initializeApp(firebaseConfig);
-export const firebaseDb = getFirestore(firebaseApp);
+export const firebaseDb = getDatabase(firebaseApp);

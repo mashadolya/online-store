@@ -7,6 +7,7 @@ export const IconButtonWrapper = styled.button`
   border: none;
   z-index: 1;
   background: none;
+
   &:hover {
     color: ${({ theme }) => theme.color.teal};
     cursor: pointer;
@@ -42,6 +43,7 @@ export const Icon = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+
   &:hover {
     fill: ${({ theme }) => theme.color.teal};
     cursor: pointer;

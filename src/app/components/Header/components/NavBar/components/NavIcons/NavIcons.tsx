@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
-import { useAppSelector } from 'src/app/store/hooks/useAppSelector';
 import RouterLink from 'src/app/components/controls/RouterLink';
 import * as S from 'src/app/components/Header/components/NavBar/components/NavIcons/NavIcons.styles';
 import { Icons } from 'src/app/components/Icons';
 import { RoutePaths } from 'src/app/routes/routes';
+import { selectItemsInCart } from 'src/app/store/slices/cart/selectors';
 
 const { Cart, Profile, Favorite } = Icons;
 
@@ -13,7 +13,7 @@ const ICON_SIZE = 32;
 const MAX_RENDERED_ITEM_COUNT = 9;
 
 const NavIcons = () => {
-  const itemsInCartCount = useAppSelector(state => state.cart.itemsInCart)?.length;
+  const itemsInCartCount = selectItemsInCart()?.length;
 
   const calculateItemsInCart = useCallback(
     () =>
